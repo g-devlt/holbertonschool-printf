@@ -31,3 +31,15 @@ int write_string(va_list args)
 
 	return (write(1, s, len));
 }
+
+/**
+* write_percent - 
+* @args:
+* Return: 
+*/
+
+int write_percent(va_list args)
+{
+	(void)args;
+		return (write(1, '%', 1));
+}
