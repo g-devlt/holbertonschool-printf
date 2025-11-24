@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdarg.h>
 
+#include "get_func.h"
+
 /**
  * _printf - Prints using a format specifier
  * @format: The format specifier.
@@ -11,36 +13,31 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	int cursor = 0;
-	char current = 0
-
+	char current = 0;
 	va_list args;
 
 	va_start(args, format);
-
-	while ((current = format[cursor]) != 0)
+	while ((current = format[cursor]) != 0) /*Iterate through string*/
 	{
-		if (current == '%')
+		if (current == '%') /*Format start*/
 		{
 			current = format[cursor + 1];
-			if (current == 0)
+			func_t func = get_function(current);
+
+			if(func == NULL) /*Unrecognized format*/
 			{
-				count += write_char('%');
-				return count;
+				putchar('%');
+				putchar(current);
+			}else /*Recognized format*/
+			{
+				func(args);
 			}
 
-			if (current == 'c')
-			{
-				count += write_char(va_arg(args, char));
-			}
-			else if (current == 's')
-			{
-				count += write_string(va_arg(args, char *));
-			}
-			else if (current == '%')
-			{
-				count += write_char('%');
-			}
 			++cursor;
+		}
+		else /*No formatting*/
+		{
+			putchar(format[cursor]);
 		}
 		++cursor;
 	}
