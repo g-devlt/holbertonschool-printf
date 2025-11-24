@@ -2,5 +2,6 @@
 #define "MAIN_H"
 
 int _printf(const char *format, ...);
-
+int write_char(char c);
+int write_string(char *str);
 #endif
