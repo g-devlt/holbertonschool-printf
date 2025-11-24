@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
 * write_char - Prints a single character.
