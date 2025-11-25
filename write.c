@@ -1,4 +1,6 @@
 #include "main.h"
+#include <unistd.h>
+#include <stddef.h>
 
 /**
 * write_char - Prints a single character.
@@ -23,13 +25,13 @@ int write_string(va_list args)
 	char *str = va_arg(args, char *);
 	int len = 0;
 
-	if (!s)
-		s = NULL;
+	if (!str)
+		str = NULL;
 
-	while (s[len])
+	while (str[len])
 		len++;
 
-	return (write(1, s, len));
+	return (write(1, str, len));
 }
 
 /**
@@ -40,8 +42,10 @@ int write_string(va_list args)
 
 int write_percent(va_list args)
 {
+	static char c = '%';
+
 	(void)args;
-		return (write(1, '%', 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -49,23 +53,23 @@ int write_percent(va_list args)
 * @args: va_list contaning the decimal to print.
 *
 */
-
+/*
 int write_decimal(va_list args)
 {
 	char d = va_arg(args, int);
 	return (write(1, d, 1));
 }
-
+*/
 /**
 * write_integral - Prints an integral.
 * @args: va_list containing the integral to print.
 * Return: 
 */
-
+/*
 int write_integral(va_list args)
 {
 	   int count = 0;
-	char buffer[12]; /* Enough for -2147483648 and \0 */
+	char buffer[12]; Enough for -2147483648 and \0
 	int i = 0, j;
 	unsigned int num;
 
@@ -91,3 +95,4 @@ int write_integral(va_list args)
 
 	return count;
 }
+*/
