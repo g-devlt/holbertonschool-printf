@@ -25,13 +25,13 @@ int write_string(va_list args)
 	char *str = va_arg(args, char *);
 	int len = 0;
 
-	if (!s)
-		s = NULL;
+	if (!str)
+		str = NULL;
 
-	while (s[len])
+	while (str[len])
 		len++;
 
-	return (write(1, s, len));
+	return (write(1, str, len));
 }
 
 /**
@@ -42,6 +42,8 @@ int write_string(va_list args)
 
 int write_percent(va_list args)
 {
+	static char c = '%';
+
 	(void)args;
-		return (write(1, '%', 1));
+	return (write(1, &c, 1));
 }

@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stddef.h>
 
 #include "get_func.h"
 
@@ -15,6 +16,7 @@ int _printf(const char *format, ...)
 	int cursor = 0;
 	char current = 0;
 	va_list args;
+	func_t func;
 
 	va_start(args, format);
 	while ((current = format[cursor]) != 0) /*Iterate through string*/
@@ -22,7 +24,7 @@ int _printf(const char *format, ...)
 		if (current == '%') /*Format start*/
 		{
 			current = format[cursor + 1];
-			func_t func = get_function(current);
+			func = get_function(current);
 
 			if(func == NULL) /*Unrecognized format*/
 			{
