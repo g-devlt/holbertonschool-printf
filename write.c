@@ -53,23 +53,23 @@ int write_percent(va_list args)
 * @args: va_list contaning the decimal to print.
 *
 */
-
+/*
 int write_decimal(va_list args)
 {
 	char d = va_arg(args, int);
 	return (write(1, d, 1));
 }
-
+*/
 /**
 * write_integral - Prints an integral.
 * @args: va_list containing the integral to print.
 * Return: 
 */
-
+/*
 int write_integral(va_list args)
 {
 	   int count = 0;
-	char buffer[12]; /* Enough for -2147483648 and \0 */
+	char buffer[12]; Enough for -2147483648 and \0
 	int i = 0, j;
 	unsigned int num;
 
@@ -95,3 +95,4 @@ int write_integral(va_list args)
 
 	return count;
 }
+*/

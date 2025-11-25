@@ -21,6 +21,7 @@ func_t get_function(char format)
 		{
 			return handlers[i].handler;
 		}
+		++i;
 	}
 	return NULL;
 }

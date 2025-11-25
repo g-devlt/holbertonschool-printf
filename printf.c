@@ -28,8 +28,8 @@ int _printf(const char *format, ...)
 
 			if(func == NULL) /*Unrecognized format*/
 			{
-				putchar('%');
-				putchar(current);
+				_putchar('%');
+				_putchar(current);
 			}else /*Recognized format*/
 			{
 				func(args);
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 		}
 		else /*No formatting*/
 		{
-			putchar(format[cursor]);
+			_putchar(format[cursor]);
 		}
 		++cursor;
 	}
