@@ -50,18 +50,6 @@ int write_percent(va_list args)
 }
 
 /**
-* write_decimal - Prints a decimal.
-* @args: va_list contaning the decimal to print.
-*
-*/
-
-int write_decimal(va_list args)
-{
-	char d = va_arg(args, int);
-		return (write(1, d, 1));
-}
-
-/**
 * write_integral - Prints a signed integer using write()
 * @args: List of arguments
 *
