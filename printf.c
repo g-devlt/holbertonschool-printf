@@ -27,8 +27,6 @@ int _printf(const char *format, ...)
 
 			if (current == 0)
 			{
-				_putchar('%');
-				++count;
 				return (count);
 			}
 			func = get_function(current);
