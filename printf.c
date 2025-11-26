@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 
 			if (current == 0)
 			{
-				return (count);
+				return -1;
 			}
 			func = get_function(current);
 			if (func == NULL) /*Unrecognized format*/

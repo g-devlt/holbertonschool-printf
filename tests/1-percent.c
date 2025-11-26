@@ -3,8 +3,11 @@
 
 int main(void)
 {
-	printf("%");
-	_printf("%");
+	int l, l1;
+	l = printf("a%");
+	l1 = _printf("%");
+
+	printf("printf = %d; _printf = %d", l, l1);
 
 	return 0;
 }
