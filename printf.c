@@ -24,22 +24,33 @@ int _printf(const char *format, ...)
 		if (current == '%') /*Format start*/
 		{
 			current = format[cursor + 1];
+			
+			if(current == 0)
+			{
+				_putchar('%');
+				++count;
+				return count;
+			}
+
 			func = get_function(current);
+
 
 			if(func == NULL) /*Unrecognized format*/
 			{
 				_putchar('%');
 				_putchar(current);
+				count += 2;
 			}else /*Recognized format*/
 			{
-				func(args);
+				count += func(args);
 			}
 
 			++cursor;
 		}
 		else /*No formatting*/
 		{
-			_putchar(format[cursor]);
+			_putchar(current);
+			++count;
 		}
 		++cursor;
 	}

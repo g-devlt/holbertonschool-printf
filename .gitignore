@@ -3,3 +3,5 @@
 !*.h
 !.gitignore
 !images
+!tests
+!tests/*
