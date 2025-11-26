@@ -25,8 +25,8 @@ int write_string(va_list args)
 	char *str = va_arg(args, char *);
 	int len = 0;
 
-	if (!str)
-		str = NULL;
+	if (str == NULL)
+		return(write(1, "(null)", 6));
 
 	while (str[len])
 		len++;
