@@ -50,13 +50,13 @@ int write_percent(va_list args)
 }
 
 /**
-* write_integral - Prints a signed integer using write()
+* write_integer - Prints a signed integer using write()
 * @args: List of arguments
 *
 * Return: Number of characters printed
 */
 
-int write_integral(va_list args)
+int write_integer(va_list args)
 {
 	int n = va_arg(args, int);
 	int count = 0;

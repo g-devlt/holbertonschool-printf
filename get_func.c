@@ -9,6 +9,8 @@ static format_t handlers[] = {
 	{'c', &write_char},
 	{'s', &write_string},
 	{'%', &write_percent},
+	{'d', &write_integer},
+	{'i', &write_integer},
 	{0, NULL}
 };
 
