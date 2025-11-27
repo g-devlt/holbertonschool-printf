@@ -5,3 +5,4 @@
 !images
 !tests
 !tests/*
+!man_3_printf

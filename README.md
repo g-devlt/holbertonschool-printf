@@ -14,6 +14,6 @@ Our version of printf is very simple and doesn't implement flags, precision, wid
 ### Supported formats : 
 - [x] Characters "%c"
 - [x] Strings "%s"
-- [ ] Decimals "%d"
-- [ ] Integers "%i"
+- [x] Decimals "%d"
+- [x] Integers "%i"
 - [ ] More...
