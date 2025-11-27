@@ -10,18 +10,27 @@
 int write_bin(va_list args)
 {
 	unsigned int num;
-	char bin_digit = 0;
-	int count = 0;
+	char bin_digits[32];
+	int count = 0, i = 0;
 
 	num = va_arg(args, unsigned int);
-	while (num)
-	{
-		bin_digit = num % 2; /* Get least significant (right most) binary digit */
-		bin_digit += '0';
-		_putchar(bin_digit);
-		num >>= 1;
-		++count;
-	}
+	
+    if (num == 0)
+    {
+        _putchar('0');
+        return 1;
+    }
+
+    while(num)
+    {
+        bin_digits[count++] = (num % 2) + '0';
+        num >>= 1;
+    }
+
+    for(i = count - 1; i >= 0; --i)
+    {
+        _putchar(bin_digits[i]);
+    }
 
 	return count;
 }
