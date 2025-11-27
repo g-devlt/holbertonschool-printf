@@ -1,0 +1,8 @@
+*
+!*.c
+!*.h
+!.gitignore
+!images
+!tests
+!tests/*
+!man_3_printf

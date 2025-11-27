@@ -11,7 +11,7 @@
 int write_char(va_list args)
 {
 	char c = va_arg(args, int);
-	return (write(1, &c, 1));
+		return (write(STDOUT, &c, 1));
 }
 
 /**
@@ -25,19 +25,20 @@ int write_string(va_list args)
 	char *str = va_arg(args, char *);
 	int len = 0;
 
-	if (!str)
-		str = NULL;
+	if (str == NULL)
+		return(write(STDOUT, "(null)", 6));
 
 	while (str[len])
 		len++;
 
-	return (write(1, str, len));
+	return (write(STDOUT, str, len));
 }
 
 /**
-* write_percent - 
-* @args:
-* Return: 
+* write_percent - Write the '%' character to the standard output
+* @args: List of arguments (unused)
+*
+* Return: Always returns 1, the number of characters written
 */
 
 int write_percent(va_list args)
@@ -45,44 +46,34 @@ int write_percent(va_list args)
 	static char c = '%';
 
 	(void)args;
-	return (write(1, &c, 1));
+		return (write(STDOUT, &c, 1));
 }
 
 /**
-* write_decimal - Prints a decimal.
-* @args: va_list contaning the decimal to print.
+* write_integer - Prints a signed integer using write()
+* @args: List of arguments
 *
+* Return: Number of characters printed
 */
-/*
-int write_decimal(va_list args)
+
+int write_integer(va_list args)
 {
-	char d = va_arg(args, int);
-	return (write(1, d, 1));
-}
-*/
-/**
-* write_integral - Prints an integral.
-* @args: va_list containing the integral to print.
-* Return: 
-*/
-/*
-int write_integral(va_list args)
-{
-	   int count = 0;
-	char buffer[12]; Enough for -2147483648 and \0
+	int n = va_arg(args, int);
+	int count = 0;
+	char buffer[12];
 	int i = 0, j;
 	unsigned int num;
 
 	if (n < 0)
 	{
-		count += write(1, "-", 1);
+		count += write(STDOUT, "-", 1);
 		num = -n;
 	}
 	else
 		num = n;
 
 	if (num == 0)
-		return count + write(1, "0", 1);
+		return (count + write(STDOUT, "0", 1));
 
 	while (num > 0)
 	{
@@ -91,8 +82,7 @@ int write_integral(va_list args)
 	}
 
 	for (j = i - 1; j >= 0; j--)
-		count += write(1, &buffer[j], 1);
+		count += write(STDOUT, &buffer[j], 1);
 
-	return count;
+	return (count);
 }
-*/

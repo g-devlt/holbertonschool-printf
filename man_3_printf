@@ -1,0 +1,35 @@
+.TH _printf(3)
+
+.SH NAME
+_printf - Format various data types in a string
+
+.SH SYNOPSIS
+#include "main.h"
+
+int _printf(const char* format, ...);
+
+.SH DESCRIPTION
+.PP
+The function _printf outputs a formatted string to the stdout.
+Such as _printf("N = %d", 10) will output : "N = 10".
+
+.SH OPTIONS
+.TP
+.B %%
+This allows the user to print a '%' symbol.
+
+.TP
+.B %i
+This format specifier is used for integers.
+
+.TP
+.B %d
+Same as %i.
+
+.TP
+.B %s
+This format specifier is used for c-strings.
+
+.TP
+.B %c
+This format specifier is used for characters.
