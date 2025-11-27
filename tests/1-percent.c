@@ -4,7 +4,7 @@
 int main(void)
 {
 	int l, l1;
-	l = printf("a%");
+	l = printf("%");
 	l1 = _printf("%");
 
 	printf("printf = %d; _printf = %d", l, l1);

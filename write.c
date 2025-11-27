@@ -11,7 +11,7 @@
 int write_char(va_list args)
 {
 	char c = va_arg(args, int);
-		return (write(1, &c, 1));
+		return (write(STDOUT, &c, 1));
 }
 
 /**
@@ -26,12 +26,12 @@ int write_string(va_list args)
 	int len = 0;
 
 	if (str == NULL)
-		return(write(1, "(null)", 6));
+		return(write(STDOUT, "(null)", 6));
 
 	while (str[len])
 		len++;
 
-	return (write(1, str, len));
+	return (write(STDOUT, str, len));
 }
 
 /**
@@ -46,7 +46,7 @@ int write_percent(va_list args)
 	static char c = '%';
 
 	(void)args;
-		return (write(1, &c, 1));
+		return (write(STDOUT, &c, 1));
 }
 
 /**
@@ -66,14 +66,14 @@ int write_integer(va_list args)
 
 	if (n < 0)
 	{
-		count += write(1, "-", 1);
+		count += write(STDOUT, "-", 1);
 		num = -n;
 	}
 	else
 		num = n;
 
 	if (num == 0)
-		return (count + write(1, "0", 1));
+		return (count + write(STDOUT, "0", 1));
 
 	while (num > 0)
 	{
@@ -82,7 +82,7 @@ int write_integer(va_list args)
 	}
 
 	for (j = i - 1; j >= 0; j--)
-		count += write(1, &buffer[j], 1);
+		count += write(STDOUT, &buffer[j], 1);
 
 	return (count);
 }
